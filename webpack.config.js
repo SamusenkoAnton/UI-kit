@@ -9,16 +9,30 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
-        }
-      },
+          loader: "babel-loader",
 
+        },
+      },
       {
         test: /\.pug$/,
         use: [
           "html-loader",
           "pug-html-loader"
         ]
+      },
+
+      {
+          test: /\.png$/,
+          use: [
+              "file-loader?name=./image/[name].[ext]"
+          ]
+      },
+
+      {
+          test: /\.(woff|ttf|svg)$/,
+          use: [
+              "file-loader?name=./fonts/[name].[ext]"
+          ]
       },
 
       {
@@ -45,7 +59,9 @@ module.exports = {
     }),
     new webpack.ProvidePlugin({
         $: "jquery",
-        jQuery: "jquery"
+        jQuery: "jquery",
+        "window.jQuery": "jquery",
+        jquery: 'jQuery'
     })
   ]
 };

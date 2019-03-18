@@ -1,2 +1,12 @@
-include ./scripts/simple-ripple.js
-    
+script
+    include ./scripts/ripple.js
+style
+    include ./styles/standart button.scss
+.wrapper
+    .buttons-title
+        | Standart buttons
+    .container-buttons
+        button.button.button-green.ripple  button
+        button.button.button-big.button-green.ripple button
+        button.button.button-big.button-red.ripple button
+        button.button.button-red.ripple button

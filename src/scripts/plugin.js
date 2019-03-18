@@ -1,1 +1,1 @@
-console.log("loading plugins");
+import $ from 'jquery';
