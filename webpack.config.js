@@ -10,7 +10,6 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
-
         },
       },
       {
@@ -27,14 +26,12 @@ module.exports = {
               "file-loader?name=./image/[name].[ext]"
           ]
       },
-
       {
           test: /\.(woff|ttf|svg)$/,
           use: [
               "file-loader?name=./fonts/[name].[ext]"
           ]
       },
-
       {
         test: /\.scss$/,
         use: [
@@ -60,8 +57,7 @@ module.exports = {
     new webpack.ProvidePlugin({
         $: "jquery",
         jQuery: "jquery",
-        "window.jQuery": "jquery",
-        jquery: 'jQuery'
+        "window.jQuery": "jquery"
     })
   ]
 };

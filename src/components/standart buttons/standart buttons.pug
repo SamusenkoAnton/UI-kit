@@ -1,12 +1,12 @@
-script
-    include ./scripts/ripple.js
 style
     include ./styles/standart button.scss
+script
+    include ./scripts/ripple.js
 .wrapper
     .buttons-title
         | Standart buttons
     .container-buttons
-        button.button.button-green.ripple  button
-        button.button.button-big.button-green.ripple button
-        button.button.button-big.button-red.ripple button
-        button.button.button-red.ripple button
+        a.ripple.button-green(href='#') Button
+        a.ripple.button-big.button-green(href='#') Button
+        a.ripple.button-red.button-big(href='#') Button
+        a.ripple.button-red(href='#') Button

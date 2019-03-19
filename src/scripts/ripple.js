@@ -1,24 +1,23 @@
-$(".ripple").on("mousedown", function(e) {
-
-    var clickY = e.pageY - $(this).offset().top;
-    var clickX = e.pageX - $(this).offset().left;
-
-    var el = this;
-    var svg = '<svg><circle cx="' + parseInt(clickX) + '" cy="' + parseInt(clickY) + '" r="' + 0 + '"></circle></svg>'
-
-    $(this).find('svg').remove();
-    $(this).append(svg);
-
-    var c = $(el).find("circle");
-    c.animate({
-        "r": $(el).width() * 2
-    }, {
-        duration: 600,
-        step: function(val) {
-            c.attr("r", val);
-        },
-        complete: function() {
-            c.fadeOut(400);
+$(function() {
+    var ink, d, x, y;
+    $(".ripple").click(function(e) {
+        if ($(this).find(".ink").length === 0) {
+            $(this).prepend("<span class='ink'></span>");
         }
+        ink = $(this).find(".ink");
+        ink.removeClass("animate");
+        if (!ink.height() && !ink.width()) {
+            d = Math.max($(this).outerWidth(), $(this).outerHeight());
+            ink.css({
+                height: d,
+                width: d
+            });
+        }
+        x = e.pageX - $(this).offset().left - ink.width() / 2;
+        y = e.pageY - $(this).offset().top - ink.height() / 2;
+        ink.css({
+            top: y + 'px',
+            left: x + 'px'
+        }).addClass("animate");
     });
-});(jQuery)
+});
