@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'Lato-Black';           /* название одно */
+  src: url('../fonts/Lato-Black.woff'); /* разные файлы */
+  font-weight: normal;              /* разная плотность */
+  font-style: normal;
+}
+@font-face {
+  font-family: '9623';           /* название одно */
+  src: url('../fonts/9623.woff'); /* разные файлы */
+  font-weight: normal;              /* разная плотность */
+  font-style: normal;
+}
+.wrapper {
+  margin-top: 133px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}

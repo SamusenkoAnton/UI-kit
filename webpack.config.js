@@ -19,7 +19,6 @@ module.exports = {
           "pug-html-loader"
         ]
       },
-
       {
           test: /\.png$/,
           use: [

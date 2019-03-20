@@ -1,9 +1,12 @@
-- var name = 'Anton'
 doctype html
-html
-  head
+head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
     style
-      include ./styles/style.scss
-    title Example
-wrapper
-  include ./components/standart buttons/standart buttons.pug
+        include ./styles/main.scss
+    title Resume
+    body
+        .wrapper
+          include ./components/standart buttons/standart buttons.pug
+          include ./components/arrow buttons/arrow buttons.pug

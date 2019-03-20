@@ -1,14 +1,28 @@
-<!DOCTYPE html><html><head><style></style><title>Example</title><link href="main.css" rel="stylesheet"></head></html><wrapper><style>body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Roboto', sans-serif;
+<!DOCTYPE html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><style>@font-face {
+  font-family: 'Lato-Black';           /* название одно */
+  src: url('../fonts/Lato-Black.woff'); /* разные файлы */
+  font-weight: normal;              /* разная плотность */
+  font-style: normal;
+}
+@font-face {
+  font-family: '9623';           /* название одно */
+  src: url('../fonts/9623.woff'); /* разные файлы */
+  font-weight: normal;              /* разная плотность */
+  font-style: normal;
 }
 .wrapper {
+  margin-top: 133px;
   display:flex;
   flex-direction:column;
   justify-content:center;
   align-items:center;
 }
+</style><title>Resume</title><body><div class="wrapper"><!DOCTYPE html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><style>body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
 .container-buttons{
   margin-top:74px;
   display:flex;
@@ -17,9 +31,8 @@
 .buttons-title{
   /* Style for "STANDARD" */
   color: #4f4f4f;
-  font-family: "Lato - Black";
+  font-family: "9623";
   font-size: 18px;
-  font-weight: 400;
   line-height: 42px;
   text-transform: uppercase;
   /* Text style for "STANDARD" */
@@ -44,6 +57,8 @@
   transition: all 0.2s ease;
   margin-right: 23px;
   font-weight: bold;
+  text-transform: uppercase;
+  font-size: 10px;
 }
 .button-red{
   border: 1px solid #e75735;
@@ -335,4 +350,94 @@
         /***/ })
     /******/ ]);
 
-tmripple.init()</script><div class="wrapper"><div class="buttons-title">Standart buttons</div><div class="container-buttons"><a class="ripple button-green" href="#">Button</a><a class="ripple button-big button-green" href="#">Button</a><a class="ripple button-red button-big" href="#">Button</a><a class="ripple button-red" href="#">Button</a></div></div></wrapper><script type="text/javascript" src="main.js"></script>
+tmripple.init()</script><title>Resume</title><body><script type="text/javascript" src="main.js"></script></body><link href="main.css" rel="stylesheet"></head><div class="wrapper"><div class="buttons-title">Standart buttons</div><div class="container-buttons"><a class="ripple button-green" href="#">Button</a><a class="ripple button-big button-green" href="#">Button</a><a class="ripple button-red button-big" href="#">Button</a><a class="ripple button-red" href="#">Button</a></div></div><style>
+.container-button_arrow{
+  margin-top: 70px;
+}
+.buttons-arrow-title{
+  /* Style for "STANDARD" */
+  color: #4f4f4f;
+  font-family: "9623";
+  font-size: 18px;
+  line-height: 42px;
+  text-transform: uppercase;
+  /* Text style for "STANDARD" */
+  letter-spacing: 0.9px;
+}
+.b-buttons{
+  margin: 5%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* ======================== */
+
+.b-button{
+  margin-top: 38px;
+  background-color: #000;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  outline: none;
+}
+.b-button__left{
+  position: absolute;
+  width: 1rem; height: 1rem;
+  border-left: 0.3rem solid white;
+  border-top: 0.3rem solid white;
+  transform: rotate(-45deg) translate(0.2rem, 0.2rem);
+  transition-duration: 0.2s;
+}
+.b-button__right{
+  position: absolute;
+  width: 0.5rem; height: 0.5rem;
+  border-right: 0.3rem solid white;
+  border-top: 0.3rem solid white;
+  transform: rotate(45deg) translate(-0.2rem, 0.2rem);
+  transition-duration: 0.2s;
+}
+
+/* ====================
+    turq
+   ====================*/
+
+.b-button-round_turq{
+  width: 3.125rem; height: 3.25rem;
+  border-radius: 100%;
+  background-color: #4eb7a8;
+  transition-duration: 0.2s;
+}
+.b-button-round_turq:hover{
+  background-color: white;
+  box-shadow: inset 0 0 0 4px #4eb7a8;
+  transition-duration: 0.2s;
+}
+.b-button-round_turq:active{
+  background-color: lightgray;
+  transform: translate(0, 5px);
+  box-shadow: none;
+  transition-duration: 0.2s;
+}
+.b-button-round_turq:hover .b-button__left{
+  border-color: #4eb7a8;
+  transition-duration: 0.2s;
+}
+.b-button-round_turq:hover .b-button__left{
+  border-color: #4eb7a8;
+  transition-duration: 0.2s;
+}
+.b-button-round_turq:hover .b-button__right{
+  border-color: #4eb7a8;
+  transition-duration: 0.2s;
+}
+.b-button-round_turq:active .b-button__left{
+  border-color: white;
+  transition-duration: 0.2s;
+}
+.b-button-round_turq:active .b-button__right{
+  border-color: white;
+  transition-duration: 0.2s;
+}</style><div class="container-button_arrow"><div class="buttons-arrow-title">arrow buttons</div><div class="b-buttons"><!-- Turquoise--><button class="b-button b-button-round_turq" form="#" type="button" name="lightgreen" value="btn-lg" formaction=""><div class="b-button__left"></div></button><button class="b-button b-button-round_turq" type="button" name="lightgreen"><div class="b-button__right"></div></button></div></div></div></body></head>
