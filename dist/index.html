@@ -392,7 +392,7 @@ tmripple.init()</script><title>Resume</title><body><script type="text/javascript
 }
 .b-button__right{
   position: absolute;
-  width: 0.5rem; height: 0.5rem;
+  width: 1rem; height: 1rem;
   border-right: 0.3rem solid white;
   border-top: 0.3rem solid white;
   transform: rotate(45deg) translate(-0.2rem, 0.2rem);
@@ -440,8 +440,23 @@ tmripple.init()</script><title>Resume</title><body><script type="text/javascript
 /* Circumference = 2πr */
 /* π = 3.1415926535898 */
 /* r = 35 */
-.container-percentages{
+.percentages{
   display:flex;
+}
+.container-percentages{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.percentages-title{
+  color: #4f4f4f;
+  font-family: "9623";
+  font-size: 18px;
+  line-height: 42px;
+  text-transform: uppercase;
+  /* Text style for "STANDARD" */
+  letter-spacing: 0.9px;
 }
 svg.radial-progress {
   height: auto;
@@ -472,4 +487,31 @@ svg.radial-progress circle { stroke: #e75735; }
 
 
 
-</style><div class="container-percentages"><svg class="radial-progress" data-percentage="0" viewbox="0 0 80 80"><circle class="incomplete" cx="40" cy="40" r="35"></circle><circle class="complete" cx="40" cy="40" r="35" style="stroke-dashoffset: 39.58406743523136;"></circle><text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">0</text></svg><svg class="radial-progress" data-percentage="38" viewbox="0 0 80 80"><circle class="incomplete" cx="40" cy="40" r="35"></circle><circle class="complete" cx="40" cy="40" r="35" style="stroke-dashoffset: 147.3406954533613;"></circle><text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">38</text></svg><svg class="radial-progress" data-percentage="62" viewbox="0 0 80 80"><circle class="incomplete" cx="40" cy="40" r="35"></circle><circle class="complete" cx="40" cy="40" r="35" style="stroke-dashoffset: 147.3406954533613;"></circle><text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">62</text></svg><svg class="radial-progress" data-percentage="89" viewbox="0 0 80 80"><circle class="incomplete" cx="40" cy="40" r="35"></circle><circle class="complete" cx="40" cy="40" r="35" style="stroke-dashoffset: 147.3406954533613;"></circle><text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">89</text></svg></div></div></body></head>
+</style><div class="container-percentages"><div class="percentages-title">Percentages</div><div class="percentages"><svg class="radial-progress" data-percentage="0" viewbox="0 0 80 80"><circle class="incomplete" cx="40" cy="40" r="35"></circle><circle class="complete" cx="40" cy="40" r="35" style="stroke-dashoffset: 39.58406743523136;"></circle><text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">0</text></svg><svg class="radial-progress" data-percentage="38" viewbox="0 0 80 80"><circle class="incomplete" cx="40" cy="40" r="35"></circle><circle class="complete" cx="40" cy="40" r="35" style="stroke-dashoffset: 147.3406954533613;"></circle><text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">38</text></svg><svg class="radial-progress" data-percentage="62" viewbox="0 0 80 80"><circle class="incomplete" cx="40" cy="40" r="35"></circle><circle class="complete" cx="40" cy="40" r="35" style="stroke-dashoffset: 147.3406954533613;"></circle><text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">62</text></svg><svg class="radial-progress" data-percentage="89" viewbox="0 0 80 80"><circle class="incomplete" cx="40" cy="40" r="35"></circle><circle class="complete" cx="40" cy="40" r="35" style="stroke-dashoffset: 147.3406954533613;"></circle><text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">89</text></svg></div></div><script>$(function(){
+    // Remove svg.radial-progress .complete inline styling
+    $('svg.radial-progress').each(function( index, value ) {
+        $(this).find($('circle.complete')).removeAttr( 'style' );
+    });
+    // Activate progress animation on scroll
+    $(window).scroll(function(){
+        $('svg.radial-progress').each(function( index, value ) {
+            // If svg.radial-progress is approximately 25% vertically into the window when scrolling from the top or the bottom
+            if (
+                $(window).scrollTop() > $(this).offset().top - ($(window).height() * 0.75) &&
+                $(window).scrollTop() < $(this).offset().top + $(this).height() - ($(window).height() * 0.25)
+            ) {
+                // Get percentage of progress
+                percent = $(value).data('percentage');
+                // Get radius of the svg's circle.complete
+                radius = $(this).find($('circle.complete')).attr('r');
+                // Get circumference (2πr)
+                circumference = 2 * Math.PI * radius;
+                // Get stroke-dashoffset value based on the percentage of the circumference
+                strokeDashOffset = circumference - ((percent * circumference) / 100);
+                // Transition progress for 1.25 seconds
+                $(this).find($('circle.complete')).animate({'stroke-dashoffset': strokeDashOffset}, 1250);
+            }
+        });
+    }).trigger('scroll');
+});
+</script></div></body></head>

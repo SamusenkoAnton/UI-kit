@@ -4,8 +4,23 @@
 /* Circumference = 2πr */
 /* π = 3.1415926535898 */
 /* r = 35 */
-.container-percentages{
+.percentages{
   display:flex;
+}
+.container-percentages{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.percentages-title{
+  color: #4f4f4f;
+  font-family: "9623";
+  font-size: 18px;
+  line-height: 42px;
+  text-transform: uppercase;
+  /* Text style for "STANDARD" */
+  letter-spacing: 0.9px;
 }
 svg.radial-progress {
   height: auto;

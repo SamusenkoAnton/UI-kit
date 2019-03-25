@@ -1,19 +1,24 @@
 style
     include styles/percentages.scss
 .container-percentages
-    svg.radial-progress(data-percentage='0', viewbox='0 0 80 80')
-        circle.incomplete(cx='40', cy='40', r='35')
-        circle.complete(cx='40', cy='40', r='35', style='stroke-dashoffset: 39.58406743523136;')
-        text.percentage(x='50%', y='57%', transform='matrix(0, 1, -1, 0, 80, 0)') 0
-    svg.radial-progress(data-percentage='38', viewbox='0 0 80 80')
-        circle.incomplete(cx='40', cy='40', r='35')
-        circle.complete(cx='40', cy='40', r='35', style='stroke-dashoffset: 147.3406954533613;')
-        text.percentage(x='50%', y='57%', transform='matrix(0, 1, -1, 0, 80, 0)') 38
-    svg.radial-progress(data-percentage='62', viewbox='0 0 80 80')
-        circle.incomplete(cx='40', cy='40', r='35')
-        circle.complete(cx='40', cy='40', r='35', style='stroke-dashoffset: 147.3406954533613;')
-        text.percentage(x='50%', y='57%', transform='matrix(0, 1, -1, 0, 80, 0)') 62
-    svg.radial-progress(data-percentage='89', viewbox='0 0 80 80')
-        circle.incomplete(cx='40', cy='40', r='35')
-        circle.complete(cx='40', cy='40', r='35', style='stroke-dashoffset: 147.3406954533613;')
-        text.percentage(x='50%', y='57%', transform='matrix(0, 1, -1, 0, 80, 0)') 89
+    .percentages-title
+        | Percentages
+    .percentages
+        svg.radial-progress(data-percentage='0', viewbox='0 0 80 80')
+            circle.incomplete(cx='40', cy='40', r='35')
+            circle.complete(cx='40', cy='40', r='35', style='stroke-dashoffset: 39.58406743523136;')
+            text.percentage(x='50%', y='57%', transform='matrix(0, 1, -1, 0, 80, 0)') 0
+        svg.radial-progress(data-percentage='38', viewbox='0 0 80 80')
+            circle.incomplete(cx='40', cy='40', r='35')
+            circle.complete(cx='40', cy='40', r='35', style='stroke-dashoffset: 147.3406954533613;')
+            text.percentage(x='50%', y='57%', transform='matrix(0, 1, -1, 0, 80, 0)') 38
+        svg.radial-progress(data-percentage='62', viewbox='0 0 80 80')
+            circle.incomplete(cx='40', cy='40', r='35')
+            circle.complete(cx='40', cy='40', r='35', style='stroke-dashoffset: 147.3406954533613;')
+            text.percentage(x='50%', y='57%', transform='matrix(0, 1, -1, 0, 80, 0)') 62
+        svg.radial-progress(data-percentage='89', viewbox='0 0 80 80')
+            circle.incomplete(cx='40', cy='40', r='35')
+            circle.complete(cx='40', cy='40', r='35', style='stroke-dashoffset: 147.3406954533613;')
+            text.percentage(x='50%', y='57%', transform='matrix(0, 1, -1, 0, 80, 0)') 89
+script
+    include ./scripts/percentages.js
