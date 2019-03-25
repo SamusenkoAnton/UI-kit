@@ -355,7 +355,6 @@ tmripple.init()</script><title>Resume</title><body><script type="text/javascript
   margin-top: 70px;
 }
 .buttons-arrow-title{
-  /* Style for "STANDARD" */
   color: #4f4f4f;
   font-family: "9623";
   font-size: 18px;
@@ -399,11 +398,6 @@ tmripple.init()</script><title>Resume</title><body><script type="text/javascript
   transform: rotate(45deg) translate(-0.2rem, 0.2rem);
   transition-duration: 0.2s;
 }
-
-/* ====================
-    turq
-   ====================*/
-
 .b-button-round_turq{
   width: 3.125rem; height: 3.25rem;
   border-radius: 100%;
@@ -440,4 +434,42 @@ tmripple.init()</script><title>Resume</title><body><script type="text/javascript
 .b-button-round_turq:active .b-button__right{
   border-color: white;
   transition-duration: 0.2s;
-}</style><div class="container-button_arrow"><div class="buttons-arrow-title">arrow buttons</div><div class="b-buttons"><!-- Turquoise--><button class="b-button b-button-round_turq" form="#" type="button" name="lightgreen" value="btn-lg" formaction=""><div class="b-button__left"></div></button><button class="b-button b-button-round_turq" type="button" name="lightgreen"><div class="b-button__right"></div></button></div></div></div></body></head>
+}</style><div class="container-button_arrow"><div class="buttons-arrow-title">arrow buttons</div><div class="b-buttons"><button class="b-button b-button-round_turq" form="#" type="button" name="lightgreen" value="btn-lg" formaction=""><div class="b-button__left"></div></button><button class="b-button b-button-round_turq" type="button" name="lightgreen"><div class="b-button__right"></div></button></div></div><style>*, :before, :after { box-sizing: border-box; }
+
+/*** RADIAL PROGRESS ***/
+/* Circumference = 2πr */
+/* π = 3.1415926535898 */
+/* r = 35 */
+.container-percentages{
+  display:flex;
+}
+svg.radial-progress {
+  height: auto;
+  max-width: 200px;
+  padding: 1em;
+  transform: rotate(-90deg);
+  width: 100%;
+}
+
+svg.radial-progress circle {
+  fill: rgba(0,0,0,0);
+  stroke: #fff;
+  stroke-dashoffset: 219.91148575129; /* Circumference */
+  stroke-width: 5;
+}
+
+svg.radial-progress circle.incomplete { opacity: 0.25; }
+
+svg.radial-progress circle.complete { stroke-dasharray: 219.91148575129; /* Circumference */ }
+
+svg.radial-progress text {
+  fill: #9d9d9d;
+  font: 400 1em/1 'Oswald', sans-serif;
+  text-anchor: middle;
+}
+svg.radial-progress circle { stroke: #e75735; }
+
+
+
+
+</style><div class="container-percentages"><svg class="radial-progress" data-percentage="0" viewbox="0 0 80 80"><circle class="incomplete" cx="40" cy="40" r="35"></circle><circle class="complete" cx="40" cy="40" r="35" style="stroke-dashoffset: 39.58406743523136;"></circle><text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">0</text></svg><svg class="radial-progress" data-percentage="38" viewbox="0 0 80 80"><circle class="incomplete" cx="40" cy="40" r="35"></circle><circle class="complete" cx="40" cy="40" r="35" style="stroke-dashoffset: 147.3406954533613;"></circle><text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">38</text></svg><svg class="radial-progress" data-percentage="62" viewbox="0 0 80 80"><circle class="incomplete" cx="40" cy="40" r="35"></circle><circle class="complete" cx="40" cy="40" r="35" style="stroke-dashoffset: 147.3406954533613;"></circle><text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">62</text></svg><svg class="radial-progress" data-percentage="89" viewbox="0 0 80 80"><circle class="incomplete" cx="40" cy="40" r="35"></circle><circle class="complete" cx="40" cy="40" r="35" style="stroke-dashoffset: 147.3406954533613;"></circle><text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">89</text></svg></div></div></body></head>
