@@ -1,23 +1,4 @@
-<!DOCTYPE html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><style>@font-face {
-  font-family: 'Lato-Black';           /* название одно */
-  src: url('../fonts/Lato-Black.woff'); /* разные файлы */
-  font-weight: normal;              /* разная плотность */
-  font-style: normal;
-}
-@font-face {
-  font-family: '9623';           /* название одно */
-  src: url('../fonts/9623.woff'); /* разные файлы */
-  font-weight: normal;              /* разная плотность */
-  font-style: normal;
-}
-.wrapper {
-  margin-top: 133px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-}
-</style><title>Resume</title><body><div class="wrapper"><!DOCTYPE html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><style>body {
+<!DOCTYPE html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>Resume</title><body><div class="wrapper"><style>body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
@@ -122,235 +103,7 @@
 .button-big{
   width: 118px;
   height: 32px;
-}</style><script>window["tmripple"] =
-    /******/ (function(modules) { // webpackBootstrap
-    /******/ 	// The module cache
-    /******/ 	var installedModules = {};
-    /******/
-    /******/ 	// The require function
-    /******/ 	function __webpack_require__(moduleId) {
-        /******/
-        /******/ 		// Check if module is in cache
-        /******/ 		if(installedModules[moduleId]) {
-            /******/ 			return installedModules[moduleId].exports;
-            /******/ 		}
-        /******/ 		// Create a new module (and put it into the cache)
-        /******/ 		var module = installedModules[moduleId] = {
-            /******/ 			i: moduleId,
-            /******/ 			l: false,
-            /******/ 			exports: {}
-            /******/ 		};
-        /******/
-        /******/ 		// Execute the module function
-        /******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
-        /******/
-        /******/ 		// Flag the module as loaded
-        /******/ 		module.l = true;
-        /******/
-        /******/ 		// Return the exports of the module
-        /******/ 		return module.exports;
-        /******/ 	}
-    /******/
-    /******/
-    /******/ 	// expose the modules object (__webpack_modules__)
-    /******/ 	__webpack_require__.m = modules;
-    /******/
-    /******/ 	// expose the module cache
-    /******/ 	__webpack_require__.c = installedModules;
-    /******/
-    /******/ 	// define getter function for harmony exports
-    /******/ 	__webpack_require__.d = function(exports, name, getter) {
-        /******/ 		if(!__webpack_require__.o(exports, name)) {
-            /******/ 			Object.defineProperty(exports, name, {
-                /******/ 				configurable: false,
-                /******/ 				enumerable: true,
-                /******/ 				get: getter
-                /******/ 			});
-            /******/ 		}
-        /******/ 	};
-    /******/
-    /******/ 	// getDefaultExport function for compatibility with non-harmony modules
-    /******/ 	__webpack_require__.n = function(module) {
-        /******/ 		var getter = module && module.__esModule ?
-            /******/ 			function getDefault() { return module['default']; } :
-            /******/ 			function getModuleExports() { return module; };
-        /******/ 		__webpack_require__.d(getter, 'a', getter);
-        /******/ 		return getter;
-        /******/ 	};
-    /******/
-    /******/ 	// Object.prototype.hasOwnProperty.call
-    /******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
-    /******/
-    /******/ 	// __webpack_public_path__
-    /******/ 	__webpack_require__.p = "";
-    /******/
-    /******/ 	// Load entry module and return exports
-    /******/ 	return __webpack_require__(__webpack_require__.s = 0);
-    /******/ })
-/************************************************************************/
-/******/ ([
-    /* 0 */
-    /***/ (function(module, exports, __webpack_require__) {
-
-        "use strict";
-
-
-// Default Settings
-        var settings = {
-            area: "",
-            color: "rgba(255, 255, 255, 0.4)",
-            offsetEl: null,
-            eventListener: "click",
-            mouseMove: false
-        };
-
-        /**
-         * @description Where the magic happens
-         * @param {object} e
-         * @param {string} rippleColor
-         * @param {string} eventListener
-         */
-        function ripple(e, rippleColor, eventListener) {
-            var clickedEl = e.currentTarget;
-            var PageX = eventListener.match(/touch/) ? e.changedTouches[0].pageX : e.clientX;
-            var PageY = eventListener.match(/touch/) ? e.changedTouches[0].pageY : e.clientY;
-            var btnWidth = clickedEl.clientWidth;
-            var el = clickedEl.getBoundingClientRect();
-            var rippleOffset = settings.offsetEl ? settings.offsetEl.clientHeight : 0;
-            var btnOffsetTop = el.top + rippleOffset;
-            var btnOffsetLeft = el.left;
-            var posMouseX = PageX;
-            var posMouseY = PageY + rippleOffset;
-            var rippleX = posMouseX - btnOffsetLeft;
-            var rippleY = posMouseY - btnOffsetTop;
-
-            var baseCSS = "\n          position: absolute;\n          width: " + btnWidth * 2 + "px;\n          height: " + btnWidth * 2 + "px;\n          border-radius: 50%;\n          transition: transform 700ms, opacity 700ms;\n          transition-timing-function: cubic-bezier(0.250, 0.460, 0.450, 0.940);\n          background: " + rippleColor + ";\n          background-position: center;\n          background-repeat: no-repeat;\n          background-size: 100%;\n          left: " + (rippleX - btnWidth) + "px;\n          top: " + (rippleY - btnWidth) + "px;\n          transform: scale(0);\n          pointer-events: none;\n      ";
-
-            // Prepare the dom
-            var rippleEffect = document.createElement("span");
-            rippleEffect.style.cssText = baseCSS;
-
-            // Add some css for prevent overflow errors
-            clickedEl.style.overflow = "hidden";
-
-            // Check if the element is not static because the ripple is in absolute
-            if (window.getComputedStyle(clickedEl).position === "static") {
-                clickedEl.style.position = "relative";
-            }
-
-            // Check for the mousemove event
-            if (settings.mouseMove) {
-                settings.mouseMove = false;
-                return;
-            }
-
-            clickedEl.appendChild(rippleEffect);
-
-            // start animation
-            requestAnimationFrame(function () {
-                rippleEffect.style.cssText = baseCSS + " transform: scale(1); opacity: 0;";
-            });
-
-            setTimeout(function () {
-                rippleEffect.remove();
-            }, 700);
-        }
-
-        /**
-         * @description Prevent ripple when scrolling (Mobile Only)
-         * @param {string} eventListener
-         */
-        function onDrag(eventListener) {
-            if (eventListener === "touchend") {
-                document.getElementsByTagName("body")[0].addEventListener("touchmove", function () {
-                    settings.mouseMove = true;
-                });
-            }
-        }
-
-        function attachRipple(els, rippleColor, eventListener) {
-            for (var i = 0; i < els.length; i += 1) {
-                var currentBtn = els[i];
-                currentBtn.addEventListener(eventListener, function (e) {
-                    return ripple(e, rippleColor, eventListener);
-                });
-            }
-        }
-
-        function attachRippleToAttribute(area, rippleColor, eventListener) {
-            var attributeEl = document.querySelectorAll(area + " [data-animation='ripple']");
-
-            if (attributeEl.length > 0) {
-                attachRipple(attributeEl, rippleColor, eventListener);
-            } else {
-                throw new Error('not found any element with data-animation="ripple"');
-            }
-        }
-
-        function attachRippleToSelectors(selectors, rippleColor, eventListener) {
-            if (selectors) {
-                var selectorsEl = document.querySelectorAll(selectors);
-            } else {
-                throw new Error("You have to enter at least 1 selector");
-            }
-
-            if (selectorsEl.length > 0) {
-                attachRipple(selectorsEl, rippleColor, eventListener);
-            } else {
-                console.warn("No element found with this selector: ", selectors);
-            }
-        }
-
-        module.exports = {
-            init: function init() {
-                var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-                try {
-                    var area = settings.area,
-                        color = settings.color,
-                        offsetEl = settings.offsetEl,
-                        eventListener = settings.eventListener;
-
-
-                    area = data.area || area;
-                    color = data.color || color;
-                    offsetEl = data.offsetEl ? this.setOffsetEl(data.offsetEl) : offsetEl;
-                    eventListener = data.eventListener || eventListener;
-
-                    onDrag(eventListener);
-                    attachRippleToAttribute(area, color, eventListener);
-                } catch (e) {
-                    console.warn(e.message);
-                }
-            },
-            attachToSelectors: function attachToSelectors() {
-                var data = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-
-                try {
-                    var elSetting = {
-                        color: data.color || settings.color,
-                        eventListener: data.eventListener || settings.eventListener
-                    };
-                    var color = elSetting.color,
-                        eventListener = elSetting.eventListener;
-
-
-                    attachRippleToSelectors(data.selectors, color, eventListener);
-                } catch (e) {
-                    console.warn(e.message);
-                }
-            },
-            setOffsetEl: function setOffsetEl(el) {
-                settings.offsetEl = document.querySelector(el);
-            },
-
-            ripple: ripple
-        };
-
-        /***/ })
-    /******/ ]);
-
-tmripple.init()</script><title>Resume</title><body><script type="text/javascript" src="main.js"></script></body><link href="main.css" rel="stylesheet"></head><div class="wrapper"><div class="buttons-title">Standart buttons</div><div class="container-buttons"><a class="ripple button-green" href="#">Button</a><a class="ripple button-big button-green" href="#">Button</a><a class="ripple button-red button-big" href="#">Button</a><a class="ripple button-red" href="#">Button</a></div></div><style>
+}</style><div class="wrapper"><div class="buttons-title">Standart buttons</div><div class="container-buttons"><a class="ripple button-green" href="#">Button</a><a class="ripple button-big button-green" href="#">Button</a><a class="ripple button-red button-big" href="#">Button</a><a class="ripple button-red" href="#">Button</a></div></div><style>
 .container-button_arrow{
   margin-top: 70px;
 }
@@ -434,22 +187,7 @@ tmripple.init()</script><title>Resume</title><body><script type="text/javascript
 .b-button-round_turq:active .b-button__right{
   border-color: white;
   transition-duration: 0.2s;
-}</style><div class="container-button_arrow"><div class="buttons-arrow-title">arrow buttons</div><div class="b-buttons"><button class="b-button b-button-round_turq" form="#" type="button" name="lightgreen" value="btn-lg" formaction=""><div class="b-button__left"></div></button><button class="b-button b-button-round_turq" type="button" name="lightgreen"><div class="b-button__right"></div></button></div></div><style>*, :before, :after { box-sizing: border-box; }
-
-/*** RADIAL PROGRESS ***/
-/* Circumference = 2πr */
-/* π = 3.1415926535898 */
-/* r = 35 */
-.percentages{
-  display:flex;
-}
-.container-percentages{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-.percentages-title{
+}</style><div class="container-button_arrow"><div class="buttons-arrow-title">arrow buttons</div><div class="b-buttons"><button class="b-button b-button-round_turq" form="#" type="button" name="lightgreen" value="btn-lg" formaction=""><div class="b-button__left"></div></button><button class="b-button b-button-round_turq" type="button" name="lightgreen"><div class="b-button__right"></div></button></div></div><style>.percentages-title{
   color: #4f4f4f;
   font-family: "9623";
   font-size: 18px;
@@ -458,60 +196,35 @@ tmripple.init()</script><title>Resume</title><body><script type="text/javascript
   /* Text style for "STANDARD" */
   letter-spacing: 0.9px;
 }
-svg.radial-progress {
-  height: auto;
-  max-width: 200px;
-  padding: 1em;
-  transform: rotate(-90deg);
+.container {
+  padding: 10px 50px;
+  text-align: center;
+}
+.chart {
+  position: relative;
+  display: inline-block;
+  color: #999;
+  font-size: 40px;
+  text-align: center;
+}
+.chart canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.footer {
+  background: #f3f3f3;
   width: 100%;
+  padding: 10px;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  z-index: 99;
 }
 
-svg.radial-progress circle {
-  fill: rgba(0,0,0,0);
-  stroke: #fff;
-  stroke-dashoffset: 219.91148575129; /* Circumference */
-  stroke-width: 5;
+.footer a {
+  color: #2c3e50;
 }
 
-svg.radial-progress circle.incomplete { opacity: 0.25; }
-
-svg.radial-progress circle.complete { stroke-dasharray: 219.91148575129; /* Circumference */ }
-
-svg.radial-progress text {
-  fill: #9d9d9d;
-  font: 400 1em/1 'Oswald', sans-serif;
-  text-anchor: middle;
-}
-svg.radial-progress circle { stroke: #e75735; }
-
-
-
-
-</style><div class="container-percentages"><div class="percentages-title">Percentages</div><div class="percentages"><svg class="radial-progress" data-percentage="0" viewbox="0 0 80 80"><circle class="incomplete" cx="40" cy="40" r="35"></circle><circle class="complete" cx="40" cy="40" r="35" style="stroke-dashoffset: 39.58406743523136;"></circle><text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">0</text></svg><svg class="radial-progress" data-percentage="38" viewbox="0 0 80 80"><circle class="incomplete" cx="40" cy="40" r="35"></circle><circle class="complete" cx="40" cy="40" r="35" style="stroke-dashoffset: 147.3406954533613;"></circle><text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">38</text></svg><svg class="radial-progress" data-percentage="62" viewbox="0 0 80 80"><circle class="incomplete" cx="40" cy="40" r="35"></circle><circle class="complete" cx="40" cy="40" r="35" style="stroke-dashoffset: 147.3406954533613;"></circle><text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">62</text></svg><svg class="radial-progress" data-percentage="89" viewbox="0 0 80 80"><circle class="incomplete" cx="40" cy="40" r="35"></circle><circle class="complete" cx="40" cy="40" r="35" style="stroke-dashoffset: 147.3406954533613;"></circle><text class="percentage" x="50%" y="57%" transform="matrix(0, 1, -1, 0, 80, 0)">89</text></svg></div></div><script>$(function(){
-    // Remove svg.radial-progress .complete inline styling
-    $('svg.radial-progress').each(function( index, value ) {
-        $(this).find($('circle.complete')).removeAttr( 'style' );
-    });
-    // Activate progress animation on scroll
-    $(window).scroll(function(){
-        $('svg.radial-progress').each(function( index, value ) {
-            // If svg.radial-progress is approximately 25% vertically into the window when scrolling from the top or the bottom
-            if (
-                $(window).scrollTop() > $(this).offset().top - ($(window).height() * 0.75) &&
-                $(window).scrollTop() < $(this).offset().top + $(this).height() - ($(window).height() * 0.25)
-            ) {
-                // Get percentage of progress
-                percent = $(value).data('percentage');
-                // Get radius of the svg's circle.complete
-                radius = $(this).find($('circle.complete')).attr('r');
-                // Get circumference (2πr)
-                circumference = 2 * Math.PI * radius;
-                // Get stroke-dashoffset value based on the percentage of the circumference
-                strokeDashOffset = circumference - ((percent * circumference) / 100);
-                // Transition progress for 1.25 seconds
-                $(this).find($('circle.complete')).animate({'stroke-dashoffset': strokeDashOffset}, 1250);
-            }
-        });
-    }).trigger('scroll');
-});
-</script></div></body></head>
+</style><div class="wrapper"><div class="percentages-title">percentages / pie-charts</div><div class="percentages-charts"><div class="chart" data-percent="0">0</div><div class="chart" data-percent="38">38</div><div class="chart" data-percent="62">62</div><div class="chart" data-percent="89">89</div><div class="pieID pie"></div></div></div></div><script type="text/javascript" src="main.js"></script></body><link href="main.css" rel="stylesheet"></head>

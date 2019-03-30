@@ -9,7 +9,10 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+            loader: 'babel-loader',
+            options: {
+                presets: ['@babel/preset-env']
+            }
         },
       },
       {
@@ -53,10 +56,13 @@ module.exports = {
       filename: "[name].css",
       chunkFilename: "[id].css"
     }),
-    new webpack.ProvidePlugin({
-        $: "jquery",
-        jQuery: "jquery",
-        "window.jQuery": "jquery"
-    })
+      new webpack.ProvidePlugin({
+          '$': 'jquery',
+          jquery: 'jquery',
+          jQuery: 'jquery',
+          'window.jquery': 'jquery',
+          'window.jQuery': 'jquery',
+          'window.$': 'jquery'
+      })
   ]
 };

@@ -8,10 +8,11 @@
     "build": "webpack --mode production",
     "watch": "webpack-dev-server --mode development --open"
   },
-  "author": "impulse",
+  "author": "Anton",
   "license": "MIT",
   "devDependencies": {
-    "@babel/core": "^7.2.2",
+    "@babel/core": "^7.4.0",
+    "@babel/preset-env": "^7.4.2",
     "babel-loader": "^8.0.5",
     "babel-preset-env": "^1.7.0",
     "css-loader": "^2.1.0",
@@ -23,7 +24,7 @@
     "node-sass": "^4.11.0",
     "pug-html-loader": "^1.1.5",
     "sass-loader": "^7.0.2",
-    "webpack": "^4.10.2",
+    "webpack": "^4.29.6",
     "webpack-cli": "^3.0.1",
     "webpack-dev-server": "^3.1.14"
   }
