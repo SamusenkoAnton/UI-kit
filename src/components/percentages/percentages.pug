@@ -8,5 +8,10 @@ style
         .chart(data-percent='38') 38
         .chart(data-percent='62') 62
         .chart(data-percent='89') 89
-        .pieID.pie
+    svg.donut(width='20%', height='20%', viewbox='0 0 42 42')
+        circle.donut-hole(cx='21', cy='21', r='15.91549430918954', fill='#fff')
+        circle.donut-ring(cx='21', cy='21', r='15.91549430918954', fill='transparent', stroke='#e5e5e5', stroke-width='5')
+        circle.donut-segment(cx='21', cy='21', r='15.91549430918954', fill='transparent', stroke='#747474', stroke-width='5', stroke-dasharray='10  90', stroke-dashoffset='25')
+        circle.donut-segment(cx='21', cy='21', r='15.91549430918954', fill='transparent', stroke='#e75735', stroke-width='5', stroke-dasharray='25 75', stroke-dashoffset='15')
+        circle.donut-segment(cx='21', cy='21', r='15.91549430918954', fill='transparent', stroke='#4eb7a8', stroke-width='5', stroke-dasharray='30 75', stroke-dashoffset='95')
 
